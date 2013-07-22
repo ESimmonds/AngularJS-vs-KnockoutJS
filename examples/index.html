@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 	<head>
 		<meta charset="utf-8">
 
-		<title>Angular.JS vs Knockout.JS</title>
-		
-		<meta name="author" content="Equan Simmonds">
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -14,13 +15,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<!-- Equan - Example: http://localhost:8000/?print-pdf#/
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
@@ -37,44 +37,18 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Angular.JS vs Knockout.JS</h1>
-					<h3>Battle of the Frameworks</h3>
+					<h1>Reveal.js</h1>
+					<h3>HTML Presentations Made Easy</h3>
 					<p>
-						<small>Created by Equan Simmonds/ <a href="http://twitter.com/ESimmonds">@ESimmonds</a></small>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>What Sorcery is this?</h2>
+					<h2>Heads Up</h2>
 					<p>
-						reaval.js is a framework for creating html presentations. Incorporates grunt, markdown and a few tricks under the covers.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Under the covers</h2>
-					<ul>
-						<li class="fragment">reveal.js</li>
-						<li class="fragment">grunt</li>
-						<li class="fragment">markdown</li>
-						<li class="fragment">Node</li>
-						<li class="fragment">A few others but you get the point</li>
-					</ul>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-				
-				<section>
-					<h2>Angular.JS</h2>
-					<img src='/img/square.png'/>
-					<p>
-						reaval.js is a framework for creating html presentations. Incorporates grunt, markdown and a few tricks under the covers.
+						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
+						support for CSS 3D transforms to see it in its full glory.
 					</p>
 
 					<aside class="notes">
@@ -82,60 +56,80 @@
 					</aside>
 				</section>
 
-				<!-- Vertical slides -->
-				<section>					
+				<!-- Example of nested vertical slides -->
+				<section>
 					<section>
-						<h2>Examples</h2>
-						<p>Press down or up to navigate. <a href="#" class="navigate-down">down</a></p>
+						<h2>Vertical Slides</h2>
+						<p>
+							Slides can be nested inside of other slides,
+							try pressing <a href="#" class="navigate-down">down</a>.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
 					</section>
 					<section>
-						<h2>Example 1</h2>
+						<h2>Basement Level 1</h2>
 						<p>Press down or up to navigate.</p>
 					</section>
 					<section>
-						<h2>Example 2</h2>						
+						<h2>Basement Level 2</h2>
+						<p>Cornify</p>
+						<a class="test" href="http://cornify.com">
+							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
+						</a>
 					</section>
 					<section>
-						<h2>Example 3</h2>
+						<h2>Basement Level 3</h2>
 						<p>That's it, time to go back up.</p>
-						<a h
-						<a href="#/3" class="image"> up </a>						
+						<a href="#/2" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+						</a>
 					</section>
 				</section>
 
 				<section>
-					<h2>Knockout JS</h2>
+					<h2>Slides</h2>
 					<p>
-						Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model.
+						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
 					</p>
 				</section>
 
 				<section>
-					<section>
-						<h2>Examples</h2>
-						<p>Press down or up to navigate. <a href="#" class="navigate-down">down</a></p>
-					</section>
-					<section>
-						<h2>Example 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Example 2</h2>						
-					</section>
-					<section>
-						<h2>Example 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a h
-						<a href="#/3" class="image"> up </a>						
-					</section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
 				</section>
 
 				<section>
-					<h2>Works in Mobile Safari but we aren't going to do that today</h2>
+					<h2>Works in Mobile Safari</h2>
 					<p>
 						Try it out! You can swipe through the slides and pinch your way to the overview.
 					</p>
-				</section>								
+				</section>
+
+				<section>
+					<h2>Marvelous Unordered List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
 
 				<section data-markdown>
 					<script type="text/template">
@@ -179,7 +173,12 @@
 						<a href="?theme=serif#/themes">Serif</a> -
 						<a href="?theme=night#/themes">Night</a> -
 						<a href="?#/themes">Default</a>
-					</p>					
+					</p>
+					<p>
+						<small>
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						</small>
+					</p>
 				</section>
 
 				<section>
@@ -204,7 +203,7 @@ Reveal.addEventListener( 'customevent', function() {
 				</section>
 
 				<section>
-					<section data-background="#007777" data-background-transition="cube">
+					<section data-background="#007777">
 						<h2>Slide Backgrounds</h2>
 						<p>
 							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
@@ -230,7 +229,7 @@ Reveal.addEventListener( 'customevent', function() {
 					</p>
 				</section>
 
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="zoom">
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
 					<h2>Background Transition Override</h2>
 					<p>
 						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
@@ -266,7 +265,8 @@ function linkify( selector ) {
     };
   }
 }
-					</code></pre>					
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
 				</section>
 
 				<section>
@@ -303,7 +303,15 @@ function linkify( selector ) {
 						<p class="fragment highlight-green">highlight-green</p>
 						<p class="fragment highlight-blue">highlight-blue</p>
 					</section>
-				</section>				
+				</section>
+
+				<section>
+					<h2>Spectacular image!</h2>
+					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
+						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
+					</a>
+				</section>
+
 				<section>
 					<h2>Export to PDF</h2>
 					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
@@ -322,16 +330,17 @@ function linkify( selector ) {
 				</section>
 
 				<section>
-					<h2>References</h2>
+					<h2>Stellar Links</h2>
 					<ul>
-						<li><a href="https://github.com/ESimmonds/AngularJS-vs-KnockoutJS">Presentation Code on GitHub</a></li>	
+						<li><a href="http://slid.es">Try the online editor</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
+						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
 					</ul>
 				</section>
 
 				<section>
-					<h1>Thank You</h1>
-					<h3>+EquanSimmonds</h3>
-					<h3>@ESimmonds</h3>				
+					<h1>THE END</h1>
+					<h3>BY Hakim El Hattab / hakim.se</h3>
 				</section>
 
 			</div>
