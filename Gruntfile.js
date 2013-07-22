@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
-					port: 8000,
+					port: 8888,
 					base: '.'
 				}
 			}
@@ -104,11 +104,15 @@ module.exports = function(grunt) {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
 			}
+		},
+
+		EquansTask: {
+
 		}
 
 	});
 
-	// Dependencies
+	// Dependencies: Load the plugins that provide tasks
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
@@ -126,7 +130,13 @@ module.exports = function(grunt) {
 	// Package presentation to archive
 	grunt.registerTask( 'package', [ 'default', 'zip' ] );
 
+	grunt.registerTask('EquansTask', 'Write something out', function(){
+
+		grunt.log.write('Logging some valuable information ').ok();
+
+	});
+
 	// Serve presentation locally
-	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
+	grunt.registerTask( 'serve', [ 'connect', 'EquansTask', 'watch' ] );
 
 };
