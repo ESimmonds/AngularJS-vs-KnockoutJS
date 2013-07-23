@@ -22,7 +22,7 @@
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<!-- Equan - Example: http://localhost:8888/?print-pdf#/ -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );			
 		</script>
 
 		<!--[if lt IE 9]>
@@ -85,12 +85,47 @@
 				<!-- Vertical slides -->
 				<section>					
 					<section>
-						<h2>Examples</h2>
-						<p>Press down or up to navigate. <a href="#" class="navigate-down">down</a></p>
+						<label>Enter your name</label>
+						<input id="name" type="text">
+						<h2 id="greeting"></h2>																								
+						<div class="fragment">
+							<span>Accomplished with JQuery, familiar right?</span>
+							<pre>
+								<code>
+$(function(){
+
+	var name = $('#name');
+	var greeting = $('#greeting');
+	name.keyup(function(){
+		greeting.text('Hello ' + name.val() + '!');
+
+	})
+})
+								</code>
+							</pre>
+						</div>						
 					</section>
 					<section>
-						<h2>Example 1</h2>
-						<p>Press down or up to navigate.</p>
+					
+					<div ng-app>
+						<label>Enter your name</label>
+						<input id="name" ng-model="name">
+						<h2>Hey {{name}}!</h2>
+					</div>
+						
+						<div class="fragment">
+							<pre>
+								<code>
+<input id="name" ng-model="name">
+<h2>Hello {{name}}!</h2>
+								</code>
+							</pre>
+						</div>
+
+						<div class="fragment">
+							<span>7 lines to 2</span>
+						</div>
+
 					</section>
 					<section>
 						<h2>Example 2</h2>						
@@ -340,6 +375,8 @@ function linkify( selector ) {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
 		<script>
 
@@ -367,6 +404,16 @@ function linkify( selector ) {
 				]
 			});
 
+            $(function(){
+
+				var name = $('#name');
+				var greeting = $('#greeting');
+				name.keyup(function(){
+					greeting.text('Hello ' + name.val() + '!');
+
+				})
+			})
+        
 		</script>
 
 	</body>
