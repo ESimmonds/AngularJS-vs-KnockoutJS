@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+    	<meta charset="utf-8">
 
-		<title>Angular.JS vs Knockout.JS</title>
-		
+    	<title>Angular.JS vs Knockout.JS</title>
+
 		<meta name="author" content="Equan Simmonds">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -13,7 +13,8 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/reveal.min.css">				
+		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -23,9 +24,9 @@
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<!-- Equan - Example: http://localhost:8888/?print-pdf#/ -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );			
-		</script>
-				
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media ="print">' );			
+		</script>		
+						
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -46,7 +47,7 @@
 				</section>
 
 				<section>
-					<h2>What Sorcery is this?</h2>
+					<h2>What is under the hood?</h2>
 					<p>
 						reaval.js is a framework for creating html presentations. Incorporates grunt, markdown and a few tricks under the covers.
 					</p>
@@ -57,7 +58,7 @@
 				</section>
 
 				<section>
-					<h2>Under the covers</h2>
+					<h2>String and duck tape</h2>
 					<ul>
 						<li class="fragment">reveal.js</li>
 						<li class="fragment">grunt</li>
@@ -114,7 +115,7 @@ $(function(){
 					</section>
 					<section>
 					
-					<div ng-app>
+					<div>
 						<label>Enter your name</label>
 
 						<input id="name" ng-model="name">
@@ -147,25 +148,73 @@ $(function(){
 						<h2>Boring, what else can it do?</h2>					
 						<h3 class="fragment">Bindings, Models, and Controllers</h3>						
 						
-
-						<aside class="notes">
+						<div ng-controller="TodoController">
+							<h3>Total Todos: {{getTotalTodos()}}</h3>
+							<h3>Remaining: {{remaining()}}</h3>
 							
+							<ul class="unstyled">
+								<li ng-repeat="todo in myTodoList">
+									<input type="checkbox" ng-model="todo.done">
+									<span class="done-{{todo.done}}">{{$index}} {{todo.text}}</span>									
+								</li>
+							</ul>
+
+							<form ng-submit="addTodo()">
+								<input tpye="text" ng-model="todoAddText">
+								<button class="btn-primary" type="submit"><i class="icon-plus"></i>Add</button>
+							</form>
+
+							<button class="btn-large" ng-click="clearCompleted()"><i class="icon-trash"></i>Clear Completed</button>
+
+						</div>
+
+						<aside class="notes">							
 							<ul>
 								<li>Can replace for loops for definition lists</li>
 								<li>Can replace experience status icons and functions</li>								
 								<li>Bindings are case sensitive</li>
 							</ul>
 						</aside>
-					</section>
-						
-
-					</section>
+					</section>									    
 					<section>
-						<h2>Example 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a h
-						<a href="#/3" class="image"> up </a>						
+					
+					<h2>Example 3: Filters</h2>
+					
+					Search: <input type="text" ng-model="searchText">
+
+						<div ng-init="friends = [
+							{name:'John', phone:'555-1212', age:10},
+			       			{name:'Mary', phone:'555-9876', age:19},
+					       	{name:'Mike', phone:'555-4321', age:21},
+					       	{name:'Adam', phone:'555-5678', age:35},
+					       	{name:'Julie', phone:'555-8765', age:29}
+					       	]">
+													
+							<ul class="unstyled">
+								<li ng-repeat="friend in friends | filter:searchText | orderBy:'-age'">
+									{{friend.name + ' ' + friend.phone | uppercase}}, age: {{ friend.age}}
+								</li>
+							</ul>							
+						</div>																						
 					</section>
+						<section>
+							<h2>Example 4: Modules</h2>														
+							Search: <input type="text" ng-model="searchText">
+							<div ng-controller='SimpleController'>													
+								<ul class="unstyled">
+									<li ng-repeat="customer in customers | orderBy:'name' | filter:searchText">
+										{{customer.name}} - {{customer.city}}
+									</li>
+								</ul>							
+							</div>																						
+						</section>
+						<section>
+							<div>
+								<h2>Routes</h2>																						
+								<div ng-view></div>
+							</div>
+						</section>
+					</section>					
 				</section>
 
 				<section>
@@ -192,25 +241,7 @@ $(function(){
 						<a h
 						<a href="#/3" class="image"> up </a>						
 					</section>
-				</section>										
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
+				</section>													
 				<section id="transitions">
 					<h2>Transition Styles</h2>
 					<p>
@@ -224,21 +255,7 @@ $(function(){
 						<a href="?transition=none#/transitions">None</a> -
 						<a href="?#/transitions">Default</a>
 					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>					
-				</section>
-
+				</section>				
 				<section>
 					<h2>Global State</h2>
 					<p>
@@ -335,21 +352,7 @@ function linkify( selector ) {
 					</p>
 				</section>
 
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
+				<section>					
 					<section>
 						<h2>Fragment Styles</h2>
 						<p>There's a few styles of fragments, like:</p>
@@ -404,18 +407,19 @@ function test() {
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 		<script src="js/todo.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>			
+		<script src="js/SimpleController.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>			
 
 		<script>
 
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
-				history: true,
+				history: false,
 				center: true,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
@@ -440,8 +444,45 @@ function test() {
 					greeting.text('Where is ' + name.val() + '!');
 
 				})
-			})			
-        
+			})			            
+            var myApp = angular.module('myApp', []); //No dependencies
+
+            myApp.config(function ($routeProvider){
+				$routeProvider            	
+	            	.when('/4/5/view1', 
+	            		{
+	            			controller: 'SimpleController',
+	            			templateUrl: 'Partials/View1.html'	            			
+	            		})
+	            	.when('/4/5/view2', 
+	            		{	
+	            			templateUrl: 'Partials/View2.html', 
+	            			controller: 'SimpleController'
+	            		});            	
+        	});
+
+            var controllers = {};
+            
+            controllers.SimpleController = function ($scope){
+
+				$scope.customers = [
+					{name: 'Dave Jones', city: 'Phoenix'},
+					{name: 'Jamie Riley', city: 'Atlanta'},
+					{name: 'Heedy Wahlin', city: 'Chandler'},
+					{name: 'Thomas Winter', city: 'Seattle'}
+				];
+
+				$scope.addCustomer = function(){
+				    
+					$scope.customers.push({name: $scope.newCustomer.name, city:$scope.newCustomer.city});
+					$scope.newCustomer.name = '';
+					$scope.newCustomer.city = '';
+					
+				};
+			};
+            
+			myApp.controller(controllers);
+			
 		</script>
 
 	</body>
