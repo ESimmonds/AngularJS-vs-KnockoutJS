@@ -214,7 +214,18 @@ $(function(){
 								<div ng-view></div>
 							</div>
 						</section>
-					</section>					
+					</section>		
+					<section>
+						<h2>Factory, Service, Provider, Value</h2>
+
+						<aside class="notes">
+							Avoid defining objects in each
+							Factory: Create an object inside factory and return it
+							Service: Function that uses this key word to define functions
+							Provider: $getFunction, can be used to get the data
+							Value: Get a simple config value, might just want the version of a script. name, value pair
+						</aside>
+					</section>			
 				</section>
 
 				<section>
@@ -461,9 +472,32 @@ function test() {
 	            		});            	
         	});
 
+        	myApp.factory('simpleFactory', function(){
+
+        		customers = [
+					{name: 'Dave Jones', city: 'Phoenixxxx'},
+					{name: 'Jamie Riley', city: 'Atlantaxx'},
+					{name: 'Heedy Wahlin', city: 'Chandlerxxx'},
+					{name: 'Thomas Winter', city: 'Seattlexxx'}
+				];
+
+				var factory = {};
+
+    			factory.getCustomers = function(){
+    				return customers; //Async call, return a promise...blah blah blah
+    			}
+
+    			return factory;
+
+        	});
+
             var controllers = {};
             
-            controllers.SimpleController = function ($scope){
+            controllers.SimpleController = function ($scope, simpleFactory){
+
+            	$scope.factoryCustomers = [];
+
+        		init();
 
 				$scope.customers = [
 					{name: 'Dave Jones', city: 'Phoenix'},
@@ -479,6 +513,14 @@ function test() {
 					$scope.newCustomer.city = '';
 					
 				};
+
+				function init(){
+
+					$scope.factoryCustomers = simpleFactory.getCustomers();	
+
+				}
+				
+
 			};
             
 			myApp.controller(controllers);

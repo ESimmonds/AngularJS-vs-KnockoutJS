@@ -10,6 +10,13 @@
 			{{customer.name}} - {{customer.city}}
 		</li>
 
+		<label>From the Factory</label>
+		
+		<li ng-repeat="customer in factoryCustomers | filter:filter.name | orderBy:'name'">
+			{{customer.name}} - {{customer.city}}
+		</li>
+
+
 	</ul>
 
 	<br />
