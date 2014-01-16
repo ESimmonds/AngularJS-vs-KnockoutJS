@@ -1,0 +1,18 @@
+<div class="scope"> 
+    <h3>My Tasks</h3>
+            <h3>Total Todos: {{getTotalTodos()}}</h3>
+			<h3>Remaining: {{remaining()}}</h3>
+            
+            <ul class="unstyled">
+                <li ng-repeat="task in tasks" style="list-style-type:none">
+                    <input type="checkbox" ng-model="task.Done"/>
+                    <span>{{$index + 1}} {{task.Name}} {{task.done}}</span>					
+                </li>
+            </ul>                      
+                
+        <div class="scope">            
+            <input type="text" ng-model="taskName"/>
+            <button ng-click="createTask()">Add</button>
+        </div>
+        <button ng-click="clearCompleted()">Clear Completed</button>
+</div>

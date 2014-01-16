@@ -1,5 +1,5 @@
 /*!
- * reveal.js 2.5.0 (2014-01-14, 14:19)
+ * reveal.js 2.5.0 (2014-01-03, 20:53)
  * http://lab.hakim.se/reveal-js
  * MIT licensed
  *

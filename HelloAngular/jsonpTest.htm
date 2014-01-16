@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>JSONP</title>
+        <link href="app.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    </head>
+    <body>
+       <h3>So Message from Eiffel</h3>
+              
+        <span id="message"></span>  
+        <div id="dialog" title="NCARB Update">
+            <p></p>
+        </div>
+                        
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.18/jquery-ui.min.js"></script>
+        <script src="scripts/json2.js"></script>
+        <script>                                               
+            $(function() {
+                $( "#dialog" ).dialog();
+            });
+            
+            $.getJSON("https://ESimmonds2-laptop:44330/_systemMessage/GetMessage?routeId=5&jsoncallback=?", function(json){
+                                                                
+               //alert(JSON.stringify(json));                
+               
+               $('#dialog p').append(json.Message);
+               //$('#message').append(json.Message);
+               
+            });                        
+        </script>
+    </body>
+</html>

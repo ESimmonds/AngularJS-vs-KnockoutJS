@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Hello Angular</title>        
+        <link href="app.css" rel="stylesheet"/>        
+        
+    </head>
+    <body ng-app="myApp">   
+		<script type="text/ng-template" id="questions.html">
+			<div class="question">
+			
+				<span>{{question.number}}.</span>&nbsp;
+				<span>{{question.question}}</span> -&nbsp;
+				<span>{{question.type}}</span>&nbsp;
+				<div class="answer" ng-include="'templates/' + question.type + '.html'">
+				</div>
+			</div>			
+		</script>
+        <div ng-Controller="QuestionController" class="scope">                            
+		
+            <ul>
+                <li ng-repeat="question in questions" ng-include="'questions.html'">                    
+                    
+                </li>
+            </ul>                                                      
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script> 
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script>                        
+        
+            var myApp = angular.module("myApp", []);                                                    
+                                                                                                                           
+            myApp.controller("QuestionController", function($scope, $http){
+                                                
+                $scope.questions = [
+				{ number:"1", question:"How old are you?", type: "number"},
+				{ number:"2", question:"Date of Birth?", type: "date"},
+				{ number:"3", question:"Desciption of yourself?", type: "text"},
+				{ number:"4", question:"Favorite Color?", type: "singleOption"},
+				{ number:"5", question:"Pick one.", type: "multiOption"},
+				
+				];
+                                
+                                
+	                
+            });                       
+            
+        </script>
+    </body>
+</html>

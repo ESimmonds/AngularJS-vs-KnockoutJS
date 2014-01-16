@@ -1,0 +1,22 @@
+<html ng-app="OrganizeMe">
+    <head>
+        <title>OrganizeMe</title>        
+        <link href="app.css" rel="stylesheet"/>
+    </head>
+    <body>   
+      <h1>OrganizeMe</h1>
+        
+        <ul class="menu">
+            <li><a href="#/shopping">shopping</a></li>
+            <li><a href="#/contact">contacts</a></li>
+            <li><a href="#/task">tasks</a></li>
+        </ul>
+        
+        <div ng-view></div>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="scripts/controllers.js"></script>
+    </body>
+</html>

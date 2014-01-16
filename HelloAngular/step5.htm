@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Hello Angular</title>        
+        <link href="app.css" rel="stylesheet"/>        
+        
+    </head>
+    <body ng-app="step4App">
+                
+        <div ng-Controller="TasksController" class="scope">                            
+            <h3>Total Todos: {{getTotalTodos()}}</h3>
+			<h3>Remaining: {{remaining()}}</h3>
+            
+            <ul class="unstyled">
+                <li ng-repeat="task in tasks" style="list-style-type:none">
+                    <input type="checkbox" ng-model="task.Done"/>
+                    <span>{{$index + 1}} {{task.Name}}</span>					
+                </li>
+            </ul>                      
+                
+			<div ng-Controller="NewTaskController" class="scope">            
+				<input type="text" ng-model="taskName"/>
+				<button ng-click="createTask()">Add</button>
+			</div>
+        	<button ng-click="clearCompleted()">Clear Completed</button>
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script> 
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script>                        
+        
+            var myApp = angular.module("step4App", []);                                                    
+                                                                                                                           
+            myApp.controller("TasksController", function($scope, $http){
+                
+                $scope.tasks = [];
+                
+                loadData();                                
+                
+                function loadData(){
+                    $http.get("http://localhost:50204/api/tasks")
+                    .success(function(data){                        
+                        $scope.tasks = data;
+                    });                                   
+                }
+                
+                $scope.getTotalTodos = function(){                                                        
+                    return $scope.tasks.length;                     
+                };                
+				
+				$scope.remaining = function(){
+					return _.filter($scope.tasks, function(task){
+						return !task.Done;
+					}).length;
+				};
+				
+				$scope.clearCompleted = function(){
+					$scope.tasks = _.filter($scope.tasks, function(task){
+						return !task.Done;
+					});	
+				};
+	                
+            });
+            
+            myApp.controller("NewTaskController", function($scope, $http){
+                
+                $scope.taskName = null;
+                
+                
+                $scope.createTask = function(){
+                    
+                    var data = { Name: $scope.taskName };                    
+                                        
+                    $http.post("http://localhost:50204/api/tasks", data)
+                        .success(function(data, status, headers){
+							
+							console.log(headers("location"));
+							
+                            $http.get("http://localhost:50204/" + headers("location"))
+                                .success(function(data){                                                                                                            
+                                    $scope.tasks.push(data)
+									$scope.taskName = null;
+                                });
+                            
+                        });
+                };
+                
+            });
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Hello Angular</title>        
+        <link href="app.css" rel="stylesheet"/>        
+        
+    </head>
+    <body ng-app="ShoppingModule">   
+        <div ng-Controller="ShoppingController" class="scope">                            
+		
+		  <div ng-repeat="item in items">
+            {{item.title}}  
+            <input type="number" ng-model="item.quanity"/>
+            {{item.price | currency}}
+            {{item.quanity * item.price | currency}}
+          </div>
+          <div> Total: {{bill.total | currency}} </div>
+          <div>Discount: {{bill.discount | currency}}</div>
+          <div>Subtotal: {{bill.subtotal | currency}}</div>  
+          
+                                                                
+        </div>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script> 
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script>                        
+        
+            //Create a module to support our shopping views
+            var shoppingModule = angular.module("ShoppingModule", []);                                                    
+            
+            shoppingModule.factory('Items', function(){
+               var items = {};
+               items.query = function(){
+                   
+                 //Normally we would pull this from the server
+                 return [
+                    { title:"Paint pots", quanity:8, price:3.95},
+                    { title:"Polka dots", quanity:17, price:12.95},
+                    { title:"Pebbles", quanity:5, price:6.95}
+				  ];
+              
+                };
+               return items;
+            });
+                                                                                                                           
+            shoppingModule.controller("ShoppingController", function($scope, Items){
+                $scope.bill = {};                         
+                
+                $scope.items = Items.query();
+                
+				$scope.subtotal = function(){
+						return $scope.totalCart() - $scope.bill.discount;
+				};
+				
+				$scope.calculateTotals = function(){
+					var total = 0;
+					
+					angular.forEach($scope.items, function(item){
+  							total+= item.price * item.quanity;
+						});
+						
+					$scope.bill.total = total;
+					$scope.bill.discount = total > 100 ? 10 : 0;
+					$scope.bill.subtotal = total - $scope.bill.discount;
+						
+				};
+				
+				$scope.$watch('items', $scope.calculateTotals, true);
+            });                       
+            
+        </script>
+    </body>
+</html>

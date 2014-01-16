@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Hello Angular</title>
+    </head>
+    <body ng-app>   
+        <input type="text" ng:model="model.firstName"/>
+        <span>Hey {{model.firstName}}!</span>
+        {{model.firstName}}
+        <span ng-bind="model.firstName">LastName in side</span>  
+       
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    </body>
+</html>

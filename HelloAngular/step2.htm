@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Hello Angular</title>
+        <link href="app.css" rel="stylesheet"/>
+    </head>
+    <body ng-app="myApp">
+        
+        <div ng-Controller="firstController" class="scope">                
+            <input type="text" ng-model="model.firstName"/>
+            Hey {{model.firstName}}!       
+            <button ng-click="clickMe(model.firstName)">Click Me</button>
+                <div ng-Controller="firstController" class="scope">                
+                <input type="text" ng-model="model.firstName"/>
+                Hey {{model.firstName}}!       
+                <button ng-click="clickMe(model.firstName)">Click Me</button>
+                    <div ng-Controller="firstController" class="scope">                
+                    <input type="text" ng-model="model.firstName"/>
+                    Hey {{model.firstName}}!       
+                    <button ng-click="clickMe(model.firstName)">Click Me</button>                
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div>
+        <div ng-Controller="firstController" class="scope">                
+                    <input type="text" ng-model="model.firstName"/>
+                    Hey {{model.firstName}}!       
+                    <button ng-click="clickMe(model.firstName)">Click Me</button>                
+                    </div>
+        
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script> 
+        <script>
+            var myApp = angular.module("myApp", []);
+            
+            myApp.controller("firstController", function($scope){
+                
+            $scope.model = {firstName:"Mark", lastName:"JingleHeimer"};
+            
+            $scope.clickMe = function(name){
+                alert("Hey " + name);
+            };
+                                               
+            });
+            
+            
+            
+        </script>
+    </body>
+</html>

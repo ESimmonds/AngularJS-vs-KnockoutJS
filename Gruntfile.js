@@ -78,8 +78,8 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
-					port: 8888,
-					base: '.'
+					port: 8188,
+					base: '..'
 				}
 			}
 		},
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
 				'plugin/**'
 			]
 		},
-
+ 
 		watch: {
 			main: {
 				files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
-	// Default task
+	// Default task 
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify' ] );
 
 	// Theme task
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('EquansTask', 'Write something out', function(){
 
-		grunt.log.write('Logging some valuable information ').ok();
+		grunt.log.write('Logging some valuable information for the IS Team ').ok();
 
 	});
 

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Hello Angular</title>
+        <link href="app.css" rel="stylesheet"/>
+    </head>
+    <body ng-app="myApp">
+                
+                
+        <div ng-Controller="parentController" class="scope">                
+        
+            <input type="text" ng-model="model.title"/>                        
+            
+            <div ng-Controller="childController" class="scope">                
+                <input type="text" ng-model="model.title"/>
+                <input type="text" ng-model="content"/>
+                <button ng-click="setModel()">SetModel</button>
+            </div>
+            
+        </div>
+        
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script> 
+        <script>
+            var myApp = angular.module("myApp", []);
+            
+            myApp.controller("parentController", function($scope){
+                $scope.model = { title:"Title from Parent"};                
+            });
+            
+            myApp.controller("childController", function($scope){
+                $scope.content = "Content from child";
+                
+                $scope.setModel = function(){
+                  
+                  $scope.model = {title:"test from Childd"};
+                    
+                };
+                
+            });
+            
+        </script>
+    </body>
+</html>

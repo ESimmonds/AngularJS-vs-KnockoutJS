@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Hello Angular</title>
+        <link href="app.css" rel="stylesheet"/>
+    </head>
+    <body ng-app="step4App">
+                
+                
+        <div ng-Controller="friendsController" class="scope">                
+            <button ng-click="loadFriends()">Load Friends</button>
+            Search: <input type="text" ng-model="searchText">
+            <ul class="unstyled">
+                <li ng-repeat="friend in friends | filter:searchText | orderBy:'-lastName'">
+                    {{friend.lastName}}, {{friend.firstName}}
+                <li/>                
+            </ul>
+        </div>
+        
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+        <script src="scripts/json2.js"></script>
+        <script>                        
+        
+            var myApp = angular.module("step4App", []);
+                                                                                                                           
+            myApp.controller("friendsController", function($scope, $http){
+               
+            $scope.friends = [{firstName:"Mike",lastName:"Patrick"},
+            {firstName:"John",lastName:"James"},
+            {firstName:"Bob",lastName:"Michael"},
+            {firstName:"Dan",lastName:"Henry"}];
+            
+                $scope.loadFriends = function(){
+                    
+                    $http.get("http://localhost:50204/api/friends")
+                    .success(function(data){
+                        //alert(JSON.stringify(data));
+                        $scope.friends = data;
+                    }).error(function(){
+                       alert("An unexpected error occurred"); 
+                    });                    
+                };
+                
+            });                        
+            
+        </script>
+    </body>
+</html>

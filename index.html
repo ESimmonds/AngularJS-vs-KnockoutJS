@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
 
     <head>
     	<meta charset="utf-8">
 
-    	<title>Angular.JS vs Knockout.JS</title>
+    	<title>Angular.JS</title>
 
 		<meta name="author" content="Equan Simmonds">
 
@@ -14,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">				
-		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css">
 		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -39,21 +39,34 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Angular.JS vs Knockout.JS</h1>
-					<h3>Battle of the Frameworks</h3>
+					<h1>Angular.JS</h1>
+					<img src='./img/square.png' alt="AngularIcon"/>
+					<h3>You want it before you know you do</h3>
 					<p>
-						<small>Created by Equan Simmonds/ <a href="http://twitter.com/ESimmonds">@ESimmonds</a></small>
+						<small>Created by Equan Simmonds/<a href="http://twitter.com/ESimmonds">@ESimmonds</a></small>
 					</p>
 				</section>
 
 				<section>
 					<h2>What is under the hood?</h2>
+
 					<p>
-						reaval.js is a framework for creating html presentations. Incorporates grunt, markdown and a few tricks under the covers.
+						reaval.js is a framework for creating html presentations.
 					</p>
 
 					<aside class="notes">
-						Grunt.js, lint.js and a full list of features
+						
+						Reveal: Framework for creating presentation in HTML
+						<ul>
+							<li>Inspired by Paul Irish awesomeness, created his presentation as his presenation</li>
+							<li>I'm no where close but this is the first step</li>
+							<li>Because powerpoint just isn't fun to me</li>
+							<li>Export to PDF, speakernotes</li>
+							<li>Anything you can do with html</li>
+							<li>Started off embedding examples but just split them off</li>
+							<li>Please try Leap Motion and let me know
+										https://www.leapmotion.com/	</li>
+						</ul>				
 					</aside>
 				</section>
 
@@ -61,29 +74,55 @@
 					<h2>String and duck tape</h2>
 					<ul>
 						<li class="fragment">reveal.js</li>
-						<li class="fragment">grunt</li>
-						<li class="fragment">markdown</li>
-						<li class="fragment">Node</li>
-						<li class="fragment">notes.js</li>
+						<li class="fragment">Grunt</li>
+						<li class="fragment">Markdown</li>
+						<li class="fragment">Node</li>						
 						<li class="fragment">A few others but you get the point</li>
 					</ul>
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						Reveal: Framework for creating presentation in HTML
+						<ul>
+							<li>Grunt task runner for server and compiling files, jhint</li>
+							<li>Easier to write a portion of the content for the slides</li>
+							<li>Running on Node</li>
+							<li>Notes.js</li>
+							<li>Nagivate, have a progress of the slides</li>
+							<li>Route to a slide</li>
+							<li>Change the theme, more slide transitions</li>
+							<li>See running time and clock with next slide ahead</li>
+							<li>First time trying this so I'll let you know how it goes</li>
+						</ul>
 					</aside>
 				</section>
-				
 				<section>
-					<h2>Angular.JS</h2>
-					<img src='/img/square.png' alt="AngularIcon"/>
-					<p>
-						reaval.js is a framework for creating html presentations. Incorporates grunt, markdown and a few tricks under the covers.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>				
-
+					<h2>Quick Overview</h2>
+					 <ul>
+					 	<li class="fragment">Google Feedback 2009</li>
+				 		<li class="fragment">17,000 lines</li>
+				 		<li class="fragment">Misko Hevery: Dare to be bold</li>
+				 		<li class="fragment">Then be concise: Reduced to 1,500 lines</li>
+				 		<li class="fragment">For a good reason
+			 				<ul>
+		 						<li>Decouple DOM Manipulation</li>
+		 						<li>SPA</li>
+		 						<li>Declarative</li>		 						
+			 				</ul>
+				 		</li>
+					 </ul>
+					 <aside class="notes">
+					 	<ul>
+				 			<li>months of frustration with Development speed</li>
+				 			<li>17,000 lines of front end code</li>
+				 			<li>Told his team in two weeks he could replace code in Google Feedback</li>
+				 			<li>Transformed about 1700 lines of code to 1500 hundred</li>
+				 			<li>AngularJs file is only 97 KiB in production</li>
+				 			<li>Reason:
+					 		Makes it easy to create an SPA (Single Page Application)
+					 		Declarative Programming: Shows the logic without describing the control flow
+					 		Teach HTML new tricks</li>
+					 	</ul>
+					 </aside>
+				</section>											
 				<!-- Vertical slides -->
 				<section>					
 					<section>
@@ -106,6 +145,7 @@ $(function(){
 						</div>	
 						<aside class="notes">
 							<ul>
+								<li>Where is fido!</li>
 								<li>Wait for main function when document is ready</li>
 								<li>Search the DOM</li>
 								<li>Bind to the events, with a call back</li>
@@ -115,7 +155,7 @@ $(function(){
 					</section>
 					<section>
 					
-					<div>
+					<div ng-App>
 						<label>Enter your name</label>
 
 						<input id="name" ng-model="name">
@@ -123,136 +163,211 @@ $(function(){
 					</div>
 
 						<div class="fragment">
-						<pre>
-							<code>
-<input id="name" ng-model="name">
-<h2>Hello {{name}}!</h2>
-							</code>
-						</pre>																	
+
+						<pre><code>
+		<input id="name" ng-model="name">
+		<h2>Hello {{name}}!</h2>
+						</code></pre>	
+
+															
 						</div>
 
 						<div class="fragment">
 							<span>7 lines to 2</span>							
 						</div>
-						<aside class="notes">
-							
+						<aside class="notes">							
 							<ul>
+								<li>Hey Jude!</li>
 								<li>Double Curleys, used for bindings</li>
-								<li>Declarexx</li>
+								<li>Declare</li>
 								<li>Add data binding, which will update the html</li>
 								<li>Intuitive</li>								
 							</ul>
 						</aside>
 					</section>
+					
+					</section>	
 					<section>
-						<h2>Boring, what else can it do?</h2>					
-						<h3 class="fragment">Bindings, Models, and Controllers</h3>						
-						
-						<div ng-controller="TodoController">
-							<h3>Total Todos: {{getTotalTodos()}}</h3>
-							<h3>Remaining: {{remaining()}}</h3>
-							
-							<ul class="unstyled">
-								<li ng-repeat="todo in myTodoList">
-									<input type="checkbox" ng-model="todo.done">
-									<span class="done-{{todo.done}}">{{$index}} {{todo.text}}</span>									
-								</li>
-							</ul>
-
-							<form ng-submit="addTodo()">
-								<input tpye="text" ng-model="todoAddText">
-								<button class="btn-primary" type="submit"><i class="icon-plus"></i>Add</button>
-							</form>
-
-							<button class="btn-large" ng-click="clearCompleted()"><i class="icon-trash"></i>Clear Completed</button>
-
-						</div>
-
-						<aside class="notes">							
+						<h2>Composition</h2>
+						<h3 class="fragment">Directives and Bindings</h3>
+						<ul>
+							<li class="fragment">ng-App</li>
+							<li class="fragment">ng-model</li>
+							<li class="fragment">To the bat cave <a href="./HellAngular/step1.htm"></a></li>							
+						</ul>
+						<aside class="notes">	
 							<ul>
-								<li>Can replace for loops for definition lists</li>
-								<li>Can replace experience status icons and functions</li>								
-								<li>Bindings are case sensitive</li>
-							</ul>
-						</aside>
-					</section>									    
-					<section>
-					
-					<h2>Example 3: Filters</h2>
-					
-					Search: <input type="text" ng-model="searchText">
-
-						<div ng-init="friends = [
-							{name:'John', phone:'555-1212', age:10},
-			       			{name:'Mary', phone:'555-9876', age:19},
-					       	{name:'Mike', phone:'555-4321', age:21},
-					       	{name:'Adam', phone:'555-5678', age:35},
-					       	{name:'Julie', phone:'555-8765', age:29}
-					       	]">
-													
-							<ul class="unstyled">
-								<li ng-repeat="friend in friends | filter:searchText | orderBy:'-age'">
-									{{friend.name + ' ' + friend.phone | uppercase}}, age: {{ friend.age}}
+								Step 1:	http://localhost:8188/AngularJSDevSession/HelloAngular/step1.htm
+								<li>
+									Directives 
+										<ul>
+											<li>Markers on a DOM element [attribute, element name, CSS class]</li>
+											<li>Tells AngularJS’s compiler to attach a specified behavior</li>
+											<li>Can use ng-model, ng:model, data-ng-model</li>
+											<li>Can bind to an element using ng-bind=”name” or {{name}}</li>
+										</ul>	
 								</li>
-							</ul>							
-						</div>																						
+								<li>
+									ng-App
+									<ul>
+										<li>Auto-bootstrap</li>
+										<li>Designates the root element of the application</li>
+										<li>Placed on Body or html tags</li>
+									</ul>
+								</li>
+								<li>
+									ng-model
+									<ul>
+										<li>Binds input, select, text areas to a property in the scope [later]</li>
+										<li>Provides validation: required number, email, url</li>
+										<li>Set css classes ng-valid, ng-invalid</li>
+										<li>Bindings are case sensitive</li>
+									</ul>	
+								</li>
+							</ul>
+								
+						</aside>
 					</section>
-						<section>
-							<h2>Example 4: Modules</h2>														
-							Search: <input type="text" ng-model="searchText">
-							<div ng-controller='SimpleController'>													
-								<ul class="unstyled">
-									<li ng-repeat="customer in customers | orderBy:'name' | filter:searchText">
-										{{customer.name}} - {{customer.city}}
-									</li>
-								</ul>							
-							</div>																						
-						</section>
-						<section>
-							<div>
-								<h2>Routes</h2>																						
-								<div ng-view></div>
-							</div>
-						</section>
-					</section>		
+					<section>
+						<h2>At the Heart of it all</h2>
+						<ul>
+							<li class="fragment">Controllers</li>
+								<ul><li class="fragment">Inheritance may be tricky</li></ul>							
+							<li class="fragment">Scope</li>
+							<li class="fragment">Modules</li>
+							<li class="fragment">I know, Just show me the code</li>
+						</ul>
+						<aside class="notes">
+							Step 2:
+							<ul>
+								Controllers
+								<li>Purpose is to provide code or logic to execute the user’s wishes as they interact with the view</li>
+								<li>Contains the business logic behind the application for a particular scope.</li>
+								<li>
+									Tied to the piece of the DOM they are managing
+									<ul>
+										<li>By declaring the ng-controller attribute</li>
+										<li>Dynamically loaded through routes (which we will see later)</li>
+									</ul>
+								</li>
+							</ul>
+							<ul>
+								Scope
+								<li>Part of a program in which a name that refers to some entity can be used to find the entity. [link]</li>
+								<li>
+									Tied to the piece of the DOM they are managing
+									<ul>
+										<li>By declaring the ng-controller attribute</li>
+										<li>Dynamically loaded through routes (which we will see later)</li>
+									</ul>
+								</li>
+								<li>
+									Duplicate Controllers
+									<ul>
+										<li>What happens?</li>
+										<li>Each controller has its instance, Change name and click</li>
+									</ul>
+								</li>
+							</ul>	
+							<ul>
+								Modules
+								<li>Angular Apps don’t have a main method for bootstrapping. Modules specify how the application should be boot strapped.</li>
+								<li>Purposes: Unit testing, don’t need all modules to test the application</li>
+								<li>
+									Group dependencies for a functional area within your application. Used for dependency injection
+									<ul>
+										<li>By declaring the ng-controller attribute</li>
+										<li>Dynamically loaded through routes (which we will see later)</li>
+									</ul>
+								</li>
+								<li>
+									How many modules do I need?
+									<ul>
+										<li>What happens?</li>
+										<li>Most applications work well enough with a single module</li>
+									</ul>
+								</li>
+								<li>
+									Recommended have separate modules
+									<ul>
+										<li>Service, directive, filter, application level with a dependency</li>								
+									</ul>
+								</li>
+							</ul>						
+
+						</aside>						
+					</section>
 					<section>
 						<h2>Factory, Service, Provider, Value</h2>
-
+							
 						<aside class="notes">
-							Avoid defining objects in each
-							Factory: Create an object inside factory and return it
-							Service: Function that uses this key word to define functions
-							Provider: $getFunction, can be used to get the data
-							Value: Get a simple config value, might just want the version of a script. name, value pair
+							<ul>
+								Organize Me
+								<li>Avoid defining objects in each</li>
+								<li>Factory: Create an object inside factory and return it</li>
+								<li>Service: Function that uses this key word to define functions</li>
+								<li>Provider: $getFunction, can be used to get the data</li>
+								<li>Value: Get a simple config value, might just want the version of a script. name, value pair</li>
+							</ul>
 						</aside>
-					</section>			
-				</section>
-
+					</section>	
 				<section>
-					<h2>Knockout JS</h2>
-					<p>
-						Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model.
-					</p>
-				</section>
+					<h2>Interesting Extras</h2>
+					<ul>
+						<li class="fragment">Homebrewed directives</li>
+						<li class="fragment">Form Validation</li>
+						<li class="fragment">GrubHub</li>
+						<li class="fragment">Angular Seed (skeleton)[https://github.com/angular/angular-seed]</li>
+						<li class="fragment">Karma Test Runner</li>
+						<li class="fragment">Pages Made with Angular</li>
+						<li class="fragment">Anything you had in mind?</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>HomeBrewd directives
+								<ul>
+									<li>Chapter 6, Hi There</li>
+									<li>Chapter 6, Expander</li>
+								</ul>
+							</li>
+							<li>Form Validation
+								<ul>
+									<li>Chapter 2, formValidation</li>
+								</ul>
+							</li>
+							<li>GrubHub
+								<ul>
+									<li>Chater 4, Grubhub</li>
+									<li>Scripts are orgaized by directives, services, and controllers</li>
+								</ul>
+							</li>
+							<li>Angular Seed
+								<ul>
+									<li>Application Skeleton for a typical app</li>
+									<li>Contains tests libraries</li>
+								</ul>
+							</li>
+							<li>Karma Test Runner
+								<ul>
+									<li>angular seed / scripts/test.bat</li>
+									<li>Contains tests libraries</li>
+								</ul>
+							</li>
+							<li>Pages Made with Angular
+								<ul>
+									<li>http://builtwith.angularjs.org/</li>
+									<li>http://www.trailersfornetflix.com/browse</li>
+									<li>http://hat.jit.su/</li>									
+								</ul>
+							</li>
 
-				<section>
-					<section>						
-						<h2>Examples</h2>						
-					</section>
-					<section>
-						<h2>Example 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Example 2</h2>						
-					</section>
-					<section>
-						<h2>Example 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a h
-						<a href="#/3" class="image"> up </a>						
-					</section>
-				</section>													
+
+							
+
+						</ul>
+						Homebrewed directives http://localhost:8188/angularjs-book/chapter6/hiThere.html
+					</aside>
+				</section>		
 				<section id="transitions">
 					<h2>Transition Styles</h2>
 					<p>
@@ -266,28 +381,7 @@ $(function(){
 						<a href="?transition=none#/transitions">None</a> -
 						<a href="?#/transitions">Default</a>
 					</p>
-				</section>				
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
+				</section>												
 				<section>
 					<section data-background="#007777" data-background-transition="cube">
 						<h2>Slide Backgrounds</h2>
@@ -362,7 +456,13 @@ function linkify( selector ) {
 						<a href="#/2/3">like this</a>.
 					</p>
 				</section>
-
+				<section>
+					<h2>Support</h2>
+					<ul>
+						<li class="fragment">http://docs.angularjs.org/api</li>
+						<li>No IE 8 http://blog.angularjs.org/2013/12/angularjs-13-new-release-approaches.html</li>
+					</ul>					
+				</section>
 				<section>					
 					<section>
 						<h2>Fragment Styles</h2>
@@ -394,13 +494,7 @@ function linkify( selector ) {
 				</section>
 
 				<section data-markdown>
-					## References	
-
-```
-function test() {
-	console.log("notice the blank line before this function?");
-}
-```				
+					## References
 					<br/>
 					[Presentation Code on GitHub](https://github.com/ESimmonds/AngularJS-vs-KnockoutJS)								
 				</section>
@@ -428,7 +522,7 @@ function test() {
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
+				controls: true,
 				progress: true,
 				history: false,
 				center: true,
@@ -456,74 +550,7 @@ function test() {
 
 				})
 			})			            
-            var myApp = angular.module('myApp', []); //No dependencies
-
-            myApp.config(function ($routeProvider){
-				$routeProvider            	
-	            	.when('/4/5/view1', 
-	            		{
-	            			controller: 'SimpleController',
-	            			templateUrl: 'Partials/View1.html'	            			
-	            		})
-	            	.when('/4/5/view2', 
-	            		{	
-	            			templateUrl: 'Partials/View2.html', 
-	            			controller: 'SimpleController'
-	            		});            	
-        	});
-
-        	myApp.factory('simpleFactory', function(){
-
-        		customers = [
-					{name: 'Dave Jones', city: 'Phoenixxxx'},
-					{name: 'Jamie Riley', city: 'Atlantaxx'},
-					{name: 'Heedy Wahlin', city: 'Chandlerxxx'},
-					{name: 'Thomas Winter', city: 'Seattlexxx'}
-				];
-
-				var factory = {};
-
-    			factory.getCustomers = function(){
-    				return customers; //Async call, return a promise...blah blah blah
-    			}
-
-    			return factory;
-
-        	});
-
-            var controllers = {};
-            
-            controllers.SimpleController = function ($scope, simpleFactory){
-
-            	$scope.factoryCustomers = [];
-
-        		init();
-
-				$scope.customers = [
-					{name: 'Dave Jones', city: 'Phoenix'},
-					{name: 'Jamie Riley', city: 'Atlanta'},
-					{name: 'Heedy Wahlin', city: 'Chandler'},
-					{name: 'Thomas Winter', city: 'Seattle'}
-				];
-
-				$scope.addCustomer = function(){
-				    
-					$scope.customers.push({name: $scope.newCustomer.name, city:$scope.newCustomer.city});
-					$scope.newCustomer.name = '';
-					$scope.newCustomer.city = '';
-					
-				};
-
-				function init(){
-
-					$scope.factoryCustomers = simpleFactory.getCustomers();	
-
-				}
-				
-
-			};
-            
-			myApp.controller(controllers);
+            var myApp = angular.module('myApp', []); //No dependencies           
 			
 		</script>
 

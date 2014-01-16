@@ -1,0 +1,14 @@
+<div class="scope">                            
+		
+		  <div ng-repeat="item in items">
+            {{item.title}}  
+            <input type="number" ng-model="item.quanity"/>
+            {{item.price | currency}}
+            {{item.quanity * item.price | currency}}
+          </div>
+          <div> Total: {{bill.total | currency}} </div>
+          <div>Discount: {{bill.discount | currency}}</div>
+          <div>Subtotal: {{bill.subtotal | currency}}</div>   
+          
+                                                                
+        </div>

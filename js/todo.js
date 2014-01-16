@@ -2,8 +2,8 @@ function TodoController($scope){
 
 	$scope.myTodoList = [
 		{text:'Learn javascript', done: true},
-		{text:'Learn Angualr', done: false},
-		{text:'Learn Knockout', done: false},
+		{text:'Learn jQuery', done: true},
+		{text:'Learn Angualr', done: false}		
 	];
 
 	$scope.addTodo = function(){

@@ -135,7 +135,7 @@ body {
 	     -o-transform: scale( 0.1 );
 	        transform: scale( 0.1 );
 }
-
+ 
 	.reveal .slides section .fragment.zoom-in.visible {
 		opacity: 1;
 
