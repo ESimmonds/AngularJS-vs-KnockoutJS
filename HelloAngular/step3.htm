@@ -9,6 +9,7 @@
         <div ng-Controller="parentController" class="scope">                
         
             <input type="text" ng-model="model.title"/>                        
+            {{amount}}
             
             <div ng-Controller="childController" class="scope">                
                 <input type="text" ng-model="model.title"/>
@@ -24,16 +25,16 @@
             var myApp = angular.module("myApp", []);
             
             myApp.controller("parentController", function($scope){
-                $scope.model = { title:"Title from Parent"};                
+                $scope.model = { title:"Title from Parent"};
+                $scope.amount = 6;
             });
             
             myApp.controller("childController", function($scope){
                 $scope.content = "Content from child";
                 
                 $scope.setModel = function(){
-                  
-                  $scope.model = {title:"test from Childd"};
-                    
+                                    
+                  $scope.amount = 6;
                 };
                 
             });
